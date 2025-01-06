@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #121212;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    color: aliceblue;
+    /* ff9100 */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px rgba(255, 174, 0, 0.604);
+}
+
+article {
+    background: linear-gradient(45deg, rgba(251, 255, 0, 0.1), #ff91008c);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
+    position: relative;
+}
+
+article h2 {
+    font-size: 2rem;
+    color: #ff9100;
+    margin-bottom: 20px;
+}
+
+article p {
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.roadmap-list {
+    padding-left: 20px;
+}
+
+.roadmap-list li {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 10px;
+    list-style: none;
+    position: relative;
+}
+
+.roadmap-list li::before {
+    content: '✓';
+    color: #ff9100;
+    position: absolute;
+    left: -20px;
+    font-size: 1.2rem;
+}
+
+.futuristic-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: transparent;
+    border: 2px solid #ff9100;
+    color: #ff9100;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.futuristic-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff9100;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.futuristic-button:hover {
+    color: #121212;
+    border-color: #ff9100;
+}
+
+.futuristic-button:hover::before {
+    transform: translateX(0);
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+
+/* Gaya khusus untuk perangkat ponsel */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,22 @@
+    <script>
+        const button = document.getElementById("countdownButton");
+
+        button.addEventListener("mouseenter", () => {
+            let countdown = 10;
+            button.innerText = `Hitung mundur: ${countdown} detik`;
+
+            const interval = setInterval(() => {
+                countdown--;
+                if (countdown > 0) {
+                    button.innerText = `Hitung mundur: ${countdown} detik`;
+                } else {
+                    button.innerText = "Hover untuk hitung mundur";
+                    clearInterval(interval);
+                }
+            }, 1000);
+        });
+
+        button.addEventListener("mouseleave", () => {
+            button.innerText = "Hover untuk hitung mundur";
+        });
+    </script>

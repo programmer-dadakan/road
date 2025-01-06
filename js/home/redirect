@@ -1,0 +1,8 @@
+    <script>
+        // Fungsi untuk melakukan redirect
+        window.onload = function () {
+            setTimeout(() => {
+                window.location.href = '2.html'; // URL tujuan redirect
+            }, 10000); // 10000 ms = 10 detik
+        };
+    </script>

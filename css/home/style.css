@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: black;
+    color: lime;
+    font-family: monospace;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.binary {
+    position: absolute;
+    font-size: 18px;
+    opacity: 0;
+    animation: fadeInOut 3s infinite;
+}
+
+.container {
+    /* background-color: rgba(240, 248, 255, 0.374); */
+    padding: 10px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.box {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.box h1 {text-align: center;}
+.box a {text-decoration: none; color: aliceblue;}
+.box a:hover {color: black;}
+
+/* back */
+.futuristic-button-back {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: transparent;
+    border: 2px solid #FF00FF;
+    color: #FF00FF;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.futuristic-button-back::before {
+    content: '';
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FF00FF;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.futuristic-button-back:hover {
+    color: #121212;
+    border-color: FF00FF;
+    background-color: rgba(240, 248, 255, 0.559);
+}
+
+.futuristic-button-back:hover::before {
+    transform: translateX(0);
+}
+/* front */
+.futuristic-button-front {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: transparent;
+    border: 2px solid #ff9100;
+    color: #ff9100;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.futuristic-button-front::before {
+    content: '';
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff9100;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.futuristic-button-front:hover {
+    color: #121212;
+    border-color: #ff9100;
+    background-color: rgba(240, 248, 255, 0.559);
+}
+
+.futuristic-button-front:hover::before {
+    transform: translateX(0);
+}
+
+h1 {
+    font-size: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    /* border-right: 2px solid aliceblue;  */
+    /* animation: blink 0.7s steps(1) infinite; */
+}
+/* @keyframes blink {
+    0%, 100% { border-color: aliceblue; }
+    50% { border-color: transparent; }
+} */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-50px) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(0.8);
+    }
+}

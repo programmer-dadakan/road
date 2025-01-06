@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSSI</title>
+    <link rel="stylesheet" href="./css/home/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- <h1 style="color:aliceblue">
+            what is your choice?
+        </h1> -->
+        <h1 id="typing-text" style="color:aliceblue"></h1>
+        <div class="box">
+            
+            <audio id="hover-sound1" src="./sound/button-20.wav"></audio>
+            <button id="b1" class="futuristic-button-front">
+                <a href="./2025/302/front.html">
+                    PRONTEND
+                </a>
+                <!-- <a href="./2025/FrontEndMap/front.html">
+                    PRONTEND
+                </a> -->
+            </button>
+            
+            <audio id="hover-sound2" src="./sound/button-20.wav"></audio>
+            <button id="b2" class="futuristic-button-back">
+                <a href="./2025/302/back.html">
+                    BACKEND
+                </a>
+                <!-- <a href="./2025/BackEndMap/back.html">
+                    BACKEND
+                </a> -->
+            </button>
+
+        </div>
+    </div>
+<script src="./js/home/home.js"></script>
+
+<script>
+    const b1 = document.getElementById('b1');
+    const sound1 = document.getElementById('hover-sound1');
+    b1.addEventListener('mouseenter', () => {
+        sound1.currentTime = 0; 
+        sound1.play();
+    });
+    const b2 = document.getElementById('b2');
+    const sound2 = document.getElementById('hover-sound2');
+    b2.addEventListener('mouseenter', () => {
+        sound2.currentTime = 0; 
+        sound2.play();
+    });
+</script>
+
+</body>
+</html>

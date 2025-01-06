@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Code Background</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #282c34; /* Warna background gelap ala editor */
+            color: #61dafb; /* Warna teks biru cerah */
+            font-family: "Courier New", Courier, monospace;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .code {
+            position: absolute;
+            font-size: 16px;
+            opacity: 0.7;
+            animation: floatCode 10s infinite ease-in-out;
+            white-space: pre;
+        }
+
+        @keyframes floatCode {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(50vh) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-50vh) scale(0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>HTTP/1.1 302 Found</h1>
+        <h3 style="color: aliceblue;">wait frontend redirect</h3>
+    </div>
+    <script>
+        const body = document.body;
+
+        // Array berisi cuplikan sintaks Python
+        const pythonSnippets = [
+        "const add = (a, b) => a + b;",
+        "function greet(name) {\n    return `Hello, ${name}!`;\n}",
+        "let items = [1, 2, 3, 4, 5];",
+        "if (isUserLoggedIn) {\n    console.log('Welcome back!');\n}",
+        "for (let i = 0; i < 10; i++) {\n    console.log(i);\n}",
+        "class Person {\n    constructor(name) {\n        this.name = name;\n    }\n}",
+        "def factorial(n):\n    return 1 if n == 0 else n * factorial(n - 1)",
+        "print('Hello, world!')",
+        "SELECT * FROM users WHERE active = 1;",
+        "<div class=\"container\">\n    <p>Hello, HTML!</p>\n</div>",
+        "body {\n    background-color: #333;\n    color: white;\n}",
+        ];
+
+        const totalSnippets = 50; // Jumlah cuplikan kode di layar
+
+        for (let i = 0; i < totalSnippets; i++) {
+            const span = document.createElement('span');
+            span.className = 'code';
+
+            // Atur posisi, ukuran, dan waktu animasi secara acak
+            span.style.left = Math.random() * 100 + 'vw';
+            span.style.top = Math.random() * 100 + 'vh';
+            span.style.animationDelay = Math.random() * 5 + 's';
+            span.style.fontSize = Math.random() * 10 + 12 + 'px';
+
+            // Pilih cuplikan kode secara acak
+            span.textContent = pythonSnippets[Math.floor(Math.random() * pythonSnippets.length)];
+            body.appendChild(span);
+        }
+    </script>
+    <!-- 302 -->
+    <script>
+        // Fungsi untuk melakukan redirect
+        window.onload = function () {
+            setTimeout(() => {
+                window.location.href = '../FrontEndMap/front.html'; // URL tujuan redirect
+            }, 10000); // 10000 ms = 10 detik
+        };
+    </script>
+</body>
+</html>
