@@ -1,0 +1,60 @@
+        /* ads style */
+        .responsive-iframe-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            overflow: hidden;
+          }
+        
+          .responsive-iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+          }
+          
+          .responsive-ad-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 25%; /* Adjust to fit aspect ratio */
+            overflow: hidden;
+          }
+        
+          .responsive-ad-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+          }
+            .image-auto {
+              width: 100%;
+              height: auto;
+              display: block;
+            }
+        /* Floating div for PC */
+        #floatingDivPC {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 250px;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+        /* Hide the floating div on small screens (e.g., phones) */
+        @media (max-width: 400px) {
+            #floatingDivPC {
+                display: none;
+            }
+            .floatingDivPonsel {
+                display: block; /* Show on small screens */
+            }
+        }
