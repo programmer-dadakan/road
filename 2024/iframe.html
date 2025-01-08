@@ -39,47 +39,50 @@
 
 
 <script>
-    const countdownNumberEl = document.getElementById('detik');
-    let countdown = 300;
-    
-    const interval = setInterval(async() => {
-        countdown -= 1;
-        countdownNumberEl.textContent = countdown;
-        if (countdown === 0) {
-            clearInterval(interval);
-            const randomUrl = await getRandomUrl();
-            if (randomUrl) {
-                window.location.href = randomUrl;
-            } else {
-                alert('Gagal menemukan URL untuk dialihkan.');
-            }
-        }
-    }, 1000);
-    
-    // Fungsi untuk mengambil URL secara acak dari ../url.txt
-    async function getRandomUrl() {
-        try {
-            // Fetch url.txt
-            const response = await fetch('./url.txt');
-            if (!response.ok) {
-                throw new Error('Gagal memuat file URL');
-            }
-    
-            // Ambil teks dari file dan ubah menjadi array
-            const text = await response.text();
-            const urls = text.split('\n').map(url => url.trim()).filter(url => url);
-    
-            // Pilih URL secara acak
-            if (urls.length === 0) {
-                throw new Error('File URL kosong');
-            }
-            const randomIndex = Math.floor(Math.random() * urls.length);
-            return urls[randomIndex];
-        } catch (error) {
-            console.error('Error:', error.message);
-            return null;
+const countdownNumberEl = document.getElementById('detik');
+
+// Generate a random countdown between 60 and 300
+let countdown = Math.floor(Math.random() * (300 - 60 + 1)) + 60;
+
+const interval = setInterval(async () => {
+    countdown -= 1;
+    countdownNumberEl.textContent = countdown;
+    if (countdown === 0) {
+        clearInterval(interval);
+        const randomUrl = await getRandomUrl();
+        if (randomUrl) {
+            window.location.href = randomUrl;
+        } else {
+            alert('Gagal menemukan URL untuk dialihkan.');
         }
     }
+}, 1000);
+
+// Fungsi untuk mengambil URL secara acak dari ../url.txt
+async function getRandomUrl() {
+    try {
+        // Fetch url.txt
+        const response = await fetch('./url.txt');
+        if (!response.ok) {
+            throw new Error('Gagal memuat file URL');
+        }
+
+        // Ambil teks dari file dan ubah menjadi array
+        const text = await response.text();
+        const urls = text.split('\n').map(url => url.trim()).filter(url => url);
+
+        // Pilih URL secara acak
+        if (urls.length === 0) {
+            throw new Error('File URL kosong');
+        }
+        const randomIndex = Math.floor(Math.random() * urls.length);
+        return urls[randomIndex];
+    } catch (error) {
+        console.error('Error:', error.message);
+        return null;
+    }
+}
+
 </script>
 </body>
 </html>
