@@ -67,11 +67,23 @@
             margin-top: 20px;
             font-size: 0.9em;
         }
-
+        .download-page {
+            margin: 0 auto;
+            background-color: aliceblue;
+            padding: 10px;
+            display: flex;
+        }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/programmer-dadakan/road@refs/heads/main/2025/css/ads.css">
 </head>
 <body>
+        <!-- animasi counting -->
+    <div class="download-page">
+        <h1>please wait 
+            <span id="detik">0</span> 
+            second to next task
+        </h1>
+    </div>
 <header>
     <h1>Resep Opor Ayam</h1>
 </header>
@@ -156,6 +168,53 @@
     <script type='text/javascript' src='//pl25497984.profitablecpmrate.com/09/1b/42/091b42f4b04838a78e9eb67daad1e980.js'></script>
     <script async="async" data-cfasync="false" src="//pl25504958.profitablecpmrate.com/1cca768035892452f3339a5a31474ca2/invoke.js"></script>
     <div id="container-1cca768035892452f3339a5a31474ca2"></div>
+<!--  -->
+<script>
+const countdownNumberEl = document.getElementById('detik');
 
+// Generate a random countdown between 60 and 300
+let countdown = Math.floor(Math.random() * (300 - 60 + 1)) + 60;
+
+const interval = setInterval(async () => {
+    countdown -= 1;
+    countdownNumberEl.textContent = countdown;
+    if (countdown === 0) {
+        clearInterval(interval);
+        const randomUrl = await getRandomUrl();
+        if (randomUrl) {
+            window.location.href = randomUrl;
+        } else {
+            alert('Gagal menemukan URL untuk dialihkan.');
+        }
+    }
+}, 1000);
+
+// Fungsi untuk mengambil URL secara acak dari ../url.txt
+async function getRandomUrl() {
+    try {
+        // Fetch url.txt
+        const response = await fetch('./url.txt');
+        if (!response.ok) {
+            throw new Error('Gagal memuat file URL');
+        }
+
+        // Ambil teks dari file dan ubah menjadi array
+        const text = await response.text();
+        const urls = text.split('\n').map(url => url.trim()).filter(url => url);
+
+        // Pilih URL secara acak
+        if (urls.length === 0) {
+            throw new Error('File URL kosong');
+        }
+        const randomIndex = Math.floor(Math.random() * urls.length);
+        return urls[randomIndex];
+    } catch (error) {
+        console.error('Error:', error.message);
+        return null;
+    }
+}
+
+</script>
+<!--  -->
 </body>
 </html>
